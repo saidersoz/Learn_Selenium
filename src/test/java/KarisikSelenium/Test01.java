@@ -36,8 +36,6 @@ public class Test01 {
         System.out.println("Lütfen Sayı Giriniz : ");
         int number1 = input.nextInt();
 
-        System.out.println("Lütfen Sayı Giriniz : ");
-        int number2 = input.nextInt();
 
         System.out.println("Yapmak istediğiniz işlemi seçiniz ==>  \n" +
                 "Toplama İşlemi için ==> '+' \n" +
@@ -46,6 +44,12 @@ public class Test01 {
                 "Bölme İşlemi İçin   ==> '/' \n" +
                 "İşaretlerini Seçiniz :");
         Character islem = input.next().charAt(0);
+
+
+        System.out.println("Lütfen Sayı Giriniz : ");
+        int number2 = input.nextInt();
+
+
 
 
         //Girilen 1. Rakamlar için
@@ -72,7 +76,24 @@ public class Test01 {
         } else {
             System.out.println("Geçersiz Sayı");
         }
-        Thread.sleep(1800);
+
+
+
+
+        //İşlem operatörleri için
+        if (islem == '+') {
+            driver.findElement(By.xpath("(//div[@class='dcg-keypad-btn-container'])[16]")).click();
+        } else if (islem == '-') {
+            driver.findElement(By.xpath("(//div[@class='dcg-keypad-btn-container'])[12]")).click();
+        } else if (islem == '*') {
+            driver.findElement(By.xpath("(//div[@class='dcg-keypad-btn-container'])[8]")).click();
+        } else if (islem == '/') {
+            driver.findElement(By.xpath("(//div[@class='dcg-keypad-btn-container'])[4]")).click();
+        } else {
+            System.out.println("Geçersiz İşlem");
+        }
+
+
 
 
         //Girilen 2.Rakamlar için
@@ -99,33 +120,24 @@ public class Test01 {
         } else {
             System.out.println("Geçersiz Sayı");
         }
-        Thread.sleep(1800);
+        Thread.sleep(1000);
 
-
-        //İşlem operatörleri için
-        if (islem == '+') {
-            driver.findElement(By.xpath("(//div[@class='dcg-keypad-btn-container'])[16]")).click();
-        } else if (islem == '-') {
-            driver.findElement(By.xpath("(//div[@class='dcg-keypad-btn-container'])[12]")).click();
-        } else if (islem == '*') {
-            driver.findElement(By.xpath("(//div[@class='dcg-keypad-btn-container'])[8]")).click();
-        } else if (islem == '/') {
-            driver.findElement(By.xpath("(//div[@class='dcg-keypad-btn-container'])[4]")).click();
-        } else {
-            System.out.println("Geçersiz İşlem");
-        }
-        Thread.sleep(1800);
 
 
         //Enter Tuşu
         driver.findElement(By.xpath("//span[@class='dcg-keypad-btn dcg-btn-short-blue dcg-hovered']")).click();
-
-
-        WebElement sonucYasisi = driver.findElement(By.xpath("//span[@class='dcg-mq-root-block dcg-mq-hasCursor']"));
-        System.out.println("Sonuc : "+sonucYasisi.getText());
         Thread.sleep(1800);
 
-        driver.close();
+        //sonuç
+        WebElement sonuc1 = driver.findElement(By.xpath("(//span[@class='dcg-mq-digit'])[3]"));
+        WebElement sonuc2 = driver.findElement(By.xpath("(//span[@class='dcg-mq-digit'])[4]"));
+
+        System.out.print("Sonuç : ");
+        System.out.print(sonuc1.getText());
+        System.out.println(sonuc2.getText());
+        Thread.sleep(2000);
+
+         driver.close();
 
     }
 
