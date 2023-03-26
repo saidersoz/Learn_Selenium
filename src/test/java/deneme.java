@@ -13,6 +13,12 @@ public class deneme {
         driver.get("https://www.amazon.com/");
         System.out.println("ok sorun yok");
 
+        System.out.println("Yapmak istediğiniz işlemi seçiniz ==>  \n" +
+                "Toplama İşlemi için ==> '+' \n" +
+                "Çıkarma İşlemi için ==> '-' \n" +
+                "Çarpma İşlemi için  ==> '*' \n" +
+                "Bölme İşlemi İçin   ==> '/' \n" +
+                "İşaretlerini Seçiniz :");
     }
 
 }
