@@ -131,6 +131,12 @@ public class Test01 {
                 System.out.println("ACCOUNT CREATED TEST FAILED");
             }Thread.sleep(1400);
 
+
+            //reklam geç
+        WebElement reklam = driver.findElement(By.xpath("//div[@id='dismiss-button']"));
+        reklam.click(); Thread.sleep(1000);
+
+
         //15. Click 'Continue' button
         //15. 'Devam Et' düğmesini tıklayın
         WebElement devamEt = driver.findElement(By.xpath("//div[@class='pull-right']"));
