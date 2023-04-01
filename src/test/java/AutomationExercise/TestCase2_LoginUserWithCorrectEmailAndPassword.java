@@ -48,8 +48,8 @@ public class TestCase2_LoginUserWithCorrectEmailAndPassword {
 
     @After
     public void tearDown() throws Exception {
-        //Thread.sleep(1500);
-        //driver.close();
+        Thread.sleep(1500);
+        driver.close();
     }
 
     @Test
@@ -77,17 +77,40 @@ public class TestCase2_LoginUserWithCorrectEmailAndPassword {
 
         //6. Enter correct email address and password
         //6. Doğru e-posta adresini ve şifreyi girin
-
-
-
+        WebElement email = driver.findElement(By.xpath("//input[@data-qa='login-email']"));
+        email.sendKeys("m.said.ersoz3443@gmail.com"); Thread.sleep(1000);
+        WebElement password = driver.findElement(By.xpath("//input[@data-qa='login-password']"));
+        password.sendKeys("said3461"); Thread.sleep(1000);
 
         //7. Click 'login' button
         //7. 'Giriş' düğmesine tıklayın
+        WebElement login2 = driver.findElement(By.xpath("//button[@data-qa='login-button']"));
+        login2.click(); Thread.sleep(1000);
+
         //8. Verify that 'Logged in as username' is visible
         //8. "Kullanıcı adı olarak oturum açıldı" ifadesinin görünür olduğunu doğrulayın
+        WebElement loggedInAsUsername = driver.findElement(By.xpath("//a[text()=' Logged in as ']"));
+        String actualUserName = loggedInAsUsername.getText();
+        String exceptedUserName = "Logged in as said";
+
+        if (actualUserName.equals(exceptedUserName)){
+            System.out.println("Logged in as said (TEST PASSED)");
+        }else {
+            System.out.println("Logged in as said (TEST FAIL)");
+        }Thread.sleep(1000);
         //9. Click 'Delete Account' button
         //9. 'Hesabı Sil' düğmesini tıklayın
+        WebElement deleteAccount = driver.findElement(By.xpath("//a[text()=' Delete Account']"));
+        deleteAccount.click(); Thread.sleep(1500);
+
         //10. Verify that 'ACCOUNT DELETED!' is visible
         //10. 'HESAP SİLİNDİ!' görünür
+        WebElement delete = driver.findElement(By.xpath("//b[text()='Account Deleted!']"));
+        if (delete.isDisplayed()){
+            System.out.println("ACCOUNT DELETED! (TEST PASSED)");
+        }else {
+            System.out.println("ACCOUNT DELETED! (TEST FAIL)");
+        }
+
     }
 }
