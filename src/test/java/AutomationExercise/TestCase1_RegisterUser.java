@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
-public class Test01 {
+public class TestCase1_RegisterUser {
 
     public static void main(String[] args) throws InterruptedException {
 
