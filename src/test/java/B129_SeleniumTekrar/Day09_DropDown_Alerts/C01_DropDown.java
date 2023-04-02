@@ -1,4 +1,4 @@
-package B129_SeleniumTekrar.Day09_DropDown;
+package B129_SeleniumTekrar.Day09_DropDown_Alerts;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 import java.util.List;
@@ -61,6 +60,11 @@ public class C01_DropDown {
         System.out.println(tumEyaletler.get(2).getText());
         System.out.println("*********");
         tumEyaletler.forEach(t-> System.out.println(t.getText()));
+
+        //b. sayfada ki tüm ddm lerde ki tüm seçenekleri(option) konsolda yazdırınız
+        System.out.println("*********");
+        List<WebElement> tumSecenekler = driver.findElements(By.tagName("option"));
+        tumSecenekler.forEach(t-> System.out.println(t.getText()));
 
     }
 
