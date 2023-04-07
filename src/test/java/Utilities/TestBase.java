@@ -28,4 +28,12 @@ public abstract class TestBase {
         Thread.sleep(3000);
         driver.quit();
     }
+
+    public static void bekle(int saniye){
+        try {
+            Thread.sleep(saniye*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
